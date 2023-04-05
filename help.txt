@@ -100,3 +100,54 @@ foreach ($audiCars as $car) {
 }
 
 ?>
+
+<?php
+$a=4;
+$niz=array("Ana", "Maja", "Jana");
+
+?>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vezba</title>
+</head>
+<body>
+    <!--------ispis u tabeli---------->
+    <?php
+    if($a>5){
+        ?>
+        <table border="2">
+            <?php
+            foreach($niz as $i){
+                ?>
+                <tr>
+                    <td>
+                    <?php
+                    echo $i;
+                    ?>
+                    </td>
+
+                </tr>
+                <?php   }
+            ?>
+        </table>
+   <?php }
+   else{
+    ?>
+    <ul>
+        <?php
+            foreach($niz as $i){
+                ?>
+                <li>
+                    <?php
+                        echo $i;
+                    ?>
+                </li>
+            <?php }?>
+    </ul>
+    <?php } ?>
+</body>
+</html>
