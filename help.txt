@@ -1,0 +1,102 @@
+vezbe 6 - dinamicki rendering
+VEZBE 3 I 4 / PHP UVOD
+
+strlen(); - dužina stringa
+str_word_count(); - broj reči
+strrev(); - izvrnuti string
+strpos("string", "rec") - traži reč u stringu
+str_replace("rec", "zamena", "string"); - menja reč u zamenu
+
+# funkcija za sortiranje indeksiranog niza
+
+    for($i=0;$i<count($brojevi)-1;$i++){
+        for($j=$i+1;$j<count($brojevi);$j++){
+            if ($brojevi[$i]>$brojevi[$j]){
+                $max =$brojevi[$i];
+                $brojevi[$i]=$brojevi[$j];
+                $brojevi[$j]=$max;
+            }
+        }
+    }
+    echo "<br><br><br>";
+    echo "<br><br><br>";
+    # ispis posle sortiranja
+    foreach ($brojevi as $pom){
+        echo $pom." ";
+    }
+
+# matrice
+
+    $kokoske = array(
+        array("Jeca", 20),
+        array("Meca", 15),
+        array("Beca", 43)
+    );
+
+    echo "<br><br><br>";
+    echo "<br><br><br>";
+
+    for($i=0;$i<count($kokoske);$i++){
+        for($j=0;$j<count($kokoske[$i]);$j++){
+            echo $kokoske[$i][$j];
+        }
+    }
+
+# objekti
+
+# konstrutor
+    function __construct($naziv, $boja){
+        $this->naziv=$naziv;
+        $this->boja=$boja;
+    }
+
+# najmladji auto
+function najmladjiAutomobil($automobili){
+    // Postavi inicijalno najmlađe vozilo na prvo vozilo u nizu
+    $najmladji = $automobili[0];
+
+    // Iteriraj kroz sve automobile u nizu
+    foreach($automobili as $automobil){
+        // Usporedi godište trenutnog automobila s godištem najmlađeg automobila
+        // Ako je trenutni automobil mlađi, postavi ga kao najmlađeg automobila
+        if($automobil->getGodiste() > $najmladji->getGodiste()){
+            $najmladji = $automobil;
+        }
+    }
+
+    // Vrati najmlađeg automobila
+    return $najmladji;
+}
+
+
+# podniz 
+
+<?php
+
+function getAudiCars($arr) {
+    $audiCars = array();
+    foreach ($arr as $car) {
+        if ($car->getProizvodjac() == "Audi") {
+            array_push($audiCars, $car);
+        }
+    }
+    return $audiCars;
+}
+
+// Primer upotrebe funkcije sa objektima klase Auto
+$car1 = new Auto("Audi A4", 2019, "Audi");
+$car2 = new Auto("BMW X5", 2018, "BMW");
+$car3 = new Auto("Mercedes C300", 2020, "Mercedes");
+$car4 = new Auto("Audi Q7", 2017, "Audi");
+
+$cars = array($car1, $car2, $car3, $car4);
+
+$audiCars = getAudiCars($cars);
+
+// Ispisuje sve automobile koji su marke Audi
+echo "Automobili marke Audi: <br>";
+foreach ($audiCars as $car) {
+    echo $car->getMarka() . "<br>";
+}
+
+?>
